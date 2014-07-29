@@ -1,0 +1,171 @@
+<html>
+<head>
+<style>
+.fiwv
+{
+margin:10px;
+float:left;
+padding:100px 20px;
+border:1px solid gray;
+border-radius:10px;
+text-align:center;
+color:transparent;
+cursor:pointer;
+background-color:#3ffc00;
+background-image: url(wink.png); background-repeat: no-repeat; text-align: center;
+background-position:center center;
+}
+.fiwr
+{
+margin:10px;
+float:left;
+padding:100px 20px;
+border:1px solid gray;
+border-radius:10px;
+text-align:center;
+color:transparent;
+background-color:#ff3c35;
+cursor:pointer;
+background-image: url(sad.png); background-repeat: no-repeat; text-align: center;
+background-position:center center;
+}
+
+.pall
+{
+margin:10px;
+float:left;
+padding:100px 20px;
+border:1px solid gray;
+border-radius:10px;
+text-align:center;
+background-color:#ffb909;
+background-image: url(cool.png); background-repeat: no-repeat; text-align: center;
+background-position:center center;
+color:transparent;
+cursor:pointer;
+}
+</style>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+function ww()
+{
+var b=$(window).width();
+document.getElementById('a').style.width=b/3.9;
+document.getElementById('b').style.width=b/3.9;
+document.getElementById('c').style.width=b/3.9;
+document.getElementById('d').style.width=b/3.9;
+document.getElementById('e').style.width=b/3.9;
+document.getElementById('f').style.width=b/3.9;
+}
+function voila2(x)
+{
+if (x == "a"){foo2('a','b','c','d','e','f')}
+else if (x == "b"){foo2('b','a','c','d','e','f')}
+else if (x == "c"){foo2('c','a','b','d','e','f')}
+else if (x == "d"){foo2('d','a','b','c','e','f')}
+else if (x == "e"){foo2('e','a','b','c','d','f')}
+else if (x == "f"){foo2('f','a','b','c','d','e')}
+}
+function foo2(m1,m2,m3,m4,m5,m6)
+{
+$("#"+m1).html("ok");
+$("#"+m2).html("A");
+$("#"+m3).html("A");
+$("#"+m4).html("A");
+$("#"+m5).html("A");
+$("#"+m6).html("A");
+}
+function makeid()
+{
+    var text = "";
+    var possible = "abcdef";
+
+    for( var i=0; i < 1; i++ )
+        text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+     //document.getElementById(text).innerHTML="ok";
+	 document.getElementById("val").innerHTML=text;
+	 voila2(text);
+	 
+}
+
+function foo(m1,m2,m3,m4,m5,m6)
+{
+document.getElementById(m1).className= "fiwv";
+document.getElementById(m2).className= "fiwr";
+document.getElementById(m3).className= "fiwr";
+document.getElementById(m4).className= "fiwr";
+document.getElementById(m5).className= "fiwr";
+document.getElementById(m6).className= "fiwr";
+
+setTimeout(function () {
+document.getElementById(m1).className= "pall";
+document.getElementById(m2).className= "pall";
+document.getElementById(m3).className= "pall";
+document.getElementById(m4).className= "pall";
+document.getElementById(m5).className= "pall";
+document.getElementById(m6).className= "pall";
+makeid();
+}, 2000);
+}
+function voila(x)
+{
+if (x == "a"){foo('a','b','c','d','e','f')}
+else if (x == "b"){foo('b','a','c','d','e','f')}
+else if (x == "c"){foo('c','a','b','d','e','f')}
+else if (x == "d"){foo('d','a','b','c','e','f')}
+else if (x == "e"){foo('e','a','b','c','d','f')}
+else if (x == "f"){foo('f','a','b','c','d','e')}
+}
+
+function pok(m1,m2,m3,m4,m5,m6)
+{
+var n=$('#'+m1).html();
+if ( n == 'ok')
+{
+var audio = new Audio('oui.wav');
+audio.play();
+document.getElementById(m1).className= "fiwv";
+document.getElementById(m2).className= "fiwr";
+document.getElementById(m3).className= "fiwr";
+document.getElementById(m4).className= "fiwr";
+document.getElementById(m5).className= "fiwr";
+document.getElementById(m6).className= "fiwr";
+setTimeout(function () {
+document.getElementById(m1).className = "pall"; 
+document.getElementById(m2).className = "pall"; 
+document.getElementById(m3).className = "pall"; 
+document.getElementById(m4).className = "pall"; 
+document.getElementById(m5).className = "pall"; 
+document.getElementById(m6).className = "pall"; 
+//$("#"+m1).css("background-color","#f7931d");
+//$("#"+m2).css("background-color","#f7931d");
+//$("#"+m3).css("background-color","#f7931d");
+//$("#"+m4).css("background-color","#f7931d");
+//$("#"+m5).css("background-color","#f7931d");
+//$("#"+m6).css("background-color","#f7931d");
+makeid();
+}, 2000);
+}
+else
+{
+var audio = new Audio('non.wav');
+audio.play();
+var pp=$("#val").html();
+voila(pp);
+}
+}
+</script>
+</head>
+<body style="background-color:#292929;" onload="ww();makeid()">
+<div style="display:none" id="val"></div>
+<div style="width:100%">
+<div class="pall" onclick="pok('a','b','c','d','e','f')" id="a">A</div>
+<div class="pall" onclick="pok('b','a','c','d','e','f')" id="b">A</div>
+<div class="pall" onclick="pok('c','a','b','d','e','f')" id="c">A</div>
+<div class="pall" onclick="pok('d','a','b','c','e','f')" id="d">A</div>
+<div class="pall" onclick="pok('e','a','b','c','d','f')" id="e">A</div>
+<div class="pall" onclick="pok('f','a','b','c','d','e')" id="f">A</div>
+</div>
+</body>
+</html>
